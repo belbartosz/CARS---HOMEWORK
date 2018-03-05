@@ -1,4 +1,4 @@
-public enum  DriveType {
+public enum DriveType {
 
-    PRZOD,TYL,CZTERYxCZTERY;
+    PRZOD, TYL, CZTERYxCZTERY;
 }

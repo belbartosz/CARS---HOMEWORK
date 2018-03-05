@@ -1,17 +1,19 @@
 import java.time.LocalDate;
 
+
 public class Car {
 
-    CarBrand marka;
-    String nazwa;
-    CarType typ;
-    double spalanie;
-    double pojSilnika;
-    int iloscMiejsc;
-    int mocSilnika;
-    LocalDate dataProdukcji;
-    boolean czyAutomat;
-    DriveType naped;
+    private CarBrand marka;
+    private String nazwa;
+    private CarType typ;
+    private double spalanie;
+    private double pojSilnika;
+    private int iloscMiejsc;
+    private int mocSilnika;
+    private LocalDate dataProdukcji;
+    private boolean czyAutomat;
+    private DriveType naped;
+
 
     public Car(CarBrand marka, String nazwa, CarType typ, double spalanie, double pojSilnika,
                int iloscMiejsc, int mocSilnika, LocalDate dataProdukcji, boolean czyAutomat, DriveType naped) {
@@ -27,99 +29,11 @@ public class Car {
         this.naped = naped;
     }
 
-    public CarBrand getMarka() {
-        return marka;
-    }
-
-    public void setMarka(CarBrand marka) {
-        this.marka = marka;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
-    public CarType getTyp() {
-        return typ;
-    }
-
-    public void setTyp(CarType typ) {
-        this.typ = typ;
-    }
-
-    public double getSpalanie() {
-        return spalanie;
-    }
-
-    public void setSpalanie(double spalanie) {
-        this.spalanie = spalanie;
-    }
-
-    public double getPojSilnika() {
-        return pojSilnika;
-    }
-
-    public void setPojSilnika(double pojSilnika) {
-        this.pojSilnika = pojSilnika;
-    }
-
-    public int getIloscMiejsc() {
-        return iloscMiejsc;
-    }
-
-    public void setIloscMiejsc(int iloscMiejsc) {
-        this.iloscMiejsc = iloscMiejsc;
-    }
-
-    public int getMocSilnika() {
-        return mocSilnika;
-    }
-
-    public void setMocSilnika(int mocSilnika) {
-        this.mocSilnika = mocSilnika;
-    }
-
-    public LocalDate getDataProdukcji() {
-        return dataProdukcji;
-    }
-
-    public void setDataProdukcji(LocalDate dataProdukcji) {
-        this.dataProdukcji = dataProdukcji;
-    }
-
-    public boolean isCzyAutomat() {
-        return czyAutomat;
-    }
-
-    public void setCzyAutomat(boolean czyAutomat) {
-        this.czyAutomat = czyAutomat;
-    }
-
-    public DriveType getNaped() {
-        return naped;
-    }
-
-    public void setNaped(DriveType naped) {
-        this.naped = naped;
-    }
 
     @Override
     public String toString() {
-        return "Car{" +
-                "marka=" + marka +
-                ", nazwa='" + nazwa + '\'' +
-                ", typ=" + typ +
-                ", spalanie=" + spalanie +
-                ", pojSilnika=" + pojSilnika +
-                ", iloscMiejsc=" + iloscMiejsc +
-                ", mocSilnika=" + mocSilnika +
-                ", dataProdukcji=" + dataProdukcji +
-                ", czyAutomat=" + czyAutomat +
-                ", naped=" + naped +
-                '}';
+        return marka + " / " + nazwa + " / " + typ + " / " + spalanie + "l/100km / silnik: " + pojSilnika + " / " +
+                iloscMiejsc + "-miejscowy / " + mocSilnika + "KM / prod: " + dataProdukcji + " / automat: " + czyAutomat +
+                " / naped: " + naped;
     }
 }
