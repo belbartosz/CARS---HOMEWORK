@@ -6,6 +6,9 @@ public class CarShop {
     private String nazwa;
     private List<CarOffer> listaOfert = new ArrayList<CarOffer>();
 
+    public CarShop() {
+    }
+
     public CarShop(String nazwa, List<CarOffer> listaOfert) {
         this.nazwa = nazwa;
         this.listaOfert = listaOfert;

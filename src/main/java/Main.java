@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
         Car car8 = new Car(CarBrand.VW, "Passat", CarType.KOMBI, 6.6, 1.8, 5, 180, LocalDate.of(2016, 10, 10), true, DriveType.CZTERYxCZTERY);
         Car car9 = new Car(CarBrand.TESLA, "S", CarType.HATCHBACK, 0.0, 0, 5, 360, LocalDate.of(2018, 1, 1), true, DriveType.CZTERYxCZTERY);
         Car car10 = new Car(CarBrand.MITSUBISHI, "COLT", CarType.HATCHBACK, 5.2, 1.3, 5, 77, LocalDate.of(2002, 5, 1), false, DriveType.PRZOD);
+        List<Car> listaWszystkichSamochodow = Arrays.asList(car1, car2, car3, car4, car5, car6, car7, car8, car9, car10);
 
         CarOffer oferta1 = new CarOffer(car1, 160000, 4000);
         CarOffer oferta2 = new CarOffer(car2, 130000, 3500);
@@ -27,17 +29,23 @@ public class Main {
         CarOffer oferta8 = new CarOffer(car8, 110000, 2800);
         CarOffer oferta9 = new CarOffer(car9, 280000, 8800);
         CarOffer oferta10 = new CarOffer(car10, 1600, 300);
+        List<CarOffer> listaWszystkichOfert = Arrays.asList(oferta1, oferta2, oferta3, oferta4, oferta5, oferta6, oferta7, oferta8, oferta9, oferta10);
 
         CarShop sklep1 = new CarShop("SALON U ZENKA", new ArrayList<>());
         CarShop sklep2 = new CarShop("DE LUXE SALOON", new ArrayList<>());
         CarShop sklep3 = new CarShop("OLD SCHOOL - RARYTASY", new ArrayList<>());
+        List<CarShop> listaSalonow = Arrays.asList(sklep1, sklep2, sklep3);
 
         sklep1.addOffer(oferta4, oferta5, oferta10);
-        System.out.println(sklep1);
         sklep2.addOffer(oferta1, oferta3, oferta9);
-        System.out.println(sklep2);
         sklep3.addOffer(oferta2, oferta6, oferta7);
-        System.out.println(sklep3);
+
+        Car carr = new Car();
+        carr.setLista(listaWszystkichSamochodow);
+        System.out.println(carr.wszystkieMarki(sklep1));
+        System.out.println(carr.wszystkie4x4());
 
     }
+
+
 }
