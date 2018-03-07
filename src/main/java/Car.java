@@ -1,5 +1,9 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -138,6 +142,41 @@ public class Car {
                 .filter(car -> car.getNaped() == DriveType.CZTERYxCZTERY)
                 .collect(Collectors.toList());
         return wszystkieCZTERYxCZTERY;
+    }
+
+    //    samochody nie starsze niz - bez parsowania
+    public List<Car> samochodyNieStarszeNiz(LocalDate data) {
+        List<Car> auta = getLista().stream()
+                .filter(car -> car.getDataProdukcji().isAfter(data))
+                .collect(Collectors.toList());
+        return auta;
+    }
+
+    //    samochody nie starsze niz - z parsowaniem
+    public List<Car> samochodyNieStarszeNizParse(String mojaData) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.parse(mojaData, formatter);
+        List<Car> auta2 = getLista().stream()
+                .filter(car -> car.getDataProdukcji().isAfter(localDate))
+                .collect(Collectors.toList());
+        return auta2;
+    }
+
+    //    wszystkie samochody podanej marki
+    public List<Car> wsztskieSamochodyPodanejMarki(String marka) {
+        CarBrand marka2 = CarBrand.valueOf(marka.toUpperCase());
+        List<Car> samochody = getLista().stream()
+                .filter(car -> car.getMarka() == marka2)
+                .collect(Collectors.toList());
+        return samochody;
+    }
+
+    //    sortowanie samochodow po najnizszym spalaniu
+    public List<Car> najmniejszeSpalanie() {
+        List<Car> samochody = getLista().stream()
+                .sorted(Comparator.comparing(Car::getSpalanie))
+                .collect(Collectors.toList());
+        return samochody;
     }
 
 

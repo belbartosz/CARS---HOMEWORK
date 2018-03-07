@@ -44,6 +44,10 @@ public class Main {
         carr.setLista(listaWszystkichSamochodow);
         System.out.println(carr.wszystkieMarki(sklep1));
         System.out.println(carr.wszystkie4x4());
+        System.out.println(carr.samochodyNieStarszeNiz(LocalDate.of(2000,02,02)));
+        System.out.println(carr.samochodyNieStarszeNizParse("2000/02/02"));
+        System.out.println(carr.wsztskieSamochodyPodanejMarki("tesla"));
+        System.out.println(carr.najmniejszeSpalanie());
 
     }
 
