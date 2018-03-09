@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
@@ -138,35 +139,40 @@ public class Car {
 
     //    lista wszystkich samochodow z napedem 4x4
     public List<Car> wszystkie4x4() {
-        List<Car> wszystkieCZTERYxCZTERY = getLista().stream()
+        List<Car> samochody = getLista().stream()
                 .filter(car -> car.getNaped() == DriveType.CZTERYxCZTERY)
                 .collect(Collectors.toList());
-        return wszystkieCZTERYxCZTERY;
+        return samochody;
     }
 
     //    samochody nie starsze niz - bez parsowania
     public List<Car> samochodyNieStarszeNiz(LocalDate data) {
-        List<Car> auta = getLista().stream()
+        List<Car> samochody = getLista().stream()
                 .filter(car -> car.getDataProdukcji().isAfter(data))
                 .collect(Collectors.toList());
-        return auta;
+        return samochody;
     }
 
     //    samochody nie starsze niz - z parsowaniem
-    public List<Car> samochodyNieStarszeNizParse(String mojaData) {
+    Scanner scanner = new Scanner(System.in);
+
+    public List<Car> samochodyNieStarszeNizParse() {
+        System.out.println("podaj date w formacie yyyy/MM/dd");
+        String mojaData = scanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.parse(mojaData, formatter);
-        List<Car> auta2 = getLista().stream()
+        List<Car> samochody = getLista().stream()
                 .filter(car -> car.getDataProdukcji().isAfter(localDate))
                 .collect(Collectors.toList());
-        return auta2;
+        return samochody;
     }
 
     //    wszystkie samochody podanej marki
-    public List<Car> wsztskieSamochodyPodanejMarki(String marka) {
-        CarBrand marka2 = CarBrand.valueOf(marka.toUpperCase());
+    public List<Car> wsztskieSamochodyPodanejMarki() {
+        System.out.println("podaj marke");
+        String marka = scanner.nextLine().toUpperCase();
         List<Car> samochody = getLista().stream()
-                .filter(car -> car.getMarka() == marka2)
+                .filter(car -> car.getMarka().equals(CarBrand.valueOf(marka)))
                 .collect(Collectors.toList());
         return samochody;
     }
@@ -177,6 +183,14 @@ public class Car {
                 .sorted(Comparator.comparing(Car::getSpalanie))
                 .collect(Collectors.toList());
         return samochody;
+    }
+
+    //    sortowanie po nawiekszej mocy i zwrocenie
+    public void najwiekszaMoc() {
+        List<Car> samochody = getLista().stream()
+                .sorted(Comparator.comparing(Car::getMocSilnika).reversed())
+                .collect(Collectors.toList());
+        samochody.stream().forEach(System.out::println);
     }
 
 

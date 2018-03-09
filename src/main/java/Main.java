@@ -7,6 +7,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+//        WIEM, ZE NAZWY METOD NIE POWINNY BYC TAK DLUGIE, ALE CHCIALEM ABY BYLO "PRZEJRZYSCIE"
+
         Car car1 = new Car(CarBrand.BMW, "X6", CarType.SUV, 12.0, 3.0, 5, 245, LocalDate.of(2014, 4, 1), true, DriveType.CZTERYxCZTERY);
         Car car2 = new Car(CarBrand.AUDI, "QUATTRO", CarType.SEDAN, 9.2, 2.2, 2, 220, LocalDate.of(1988, 2, 22), false, DriveType.CZTERYxCZTERY);
         Car car3 = new Car(CarBrand.MERCEDES, "GLS", CarType.SUV, 16.0, 4.6, 5, 215, LocalDate.of(2008, 12, 12), true, DriveType.TYL);
@@ -34,7 +36,6 @@ public class Main {
         CarShop sklep1 = new CarShop("SALON U ZENKA", new ArrayList<>());
         CarShop sklep2 = new CarShop("DE LUXE SALOON", new ArrayList<>());
         CarShop sklep3 = new CarShop("OLD SCHOOL - RARYTASY", new ArrayList<>());
-        List<CarShop> listaSalonow = Arrays.asList(sklep1, sklep2, sklep3);
 
         sklep1.addOffer(oferta4, oferta5, oferta10);
         sklep2.addOffer(oferta1, oferta3, oferta9);
@@ -45,9 +46,17 @@ public class Main {
         System.out.println(carr.wszystkieMarki(sklep1));
         System.out.println(carr.wszystkie4x4());
         System.out.println(carr.samochodyNieStarszeNiz(LocalDate.of(2000,02,02)));
-        System.out.println(carr.samochodyNieStarszeNizParse("2000/02/02"));
-        System.out.println(carr.wsztskieSamochodyPodanejMarki("tesla"));
+        System.out.println(carr.samochodyNieStarszeNizParse());
+        System.out.println(carr.wsztskieSamochodyPodanejMarki());
         System.out.println(carr.najmniejszeSpalanie());
+        carr.najwiekszaMoc();
+
+        CarOffer carOffer = new CarOffer();
+        carOffer.setListaOfert(listaWszystkichOfert);
+        System.out.println(carOffer.listaSamochodowOferty());
+        System.out.println(carOffer.listaNajtanszychOfertNajmu());
+        System.out.println(carOffer.listaWsztkichSamochodowOferty());
+        System.out.println(carOffer.listaNajmocniejszychSamochodowONajnizszejCenie());
 
     }
 
